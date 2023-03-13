@@ -1,10 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, EnvironmentInjector } from '@angular/core';
+import { RouteReuseStrategy } from '@angular/router';
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
-  styleUrls: ['app.component.scss'],
+  standalone: true,
+  imports: [IonicModule],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
 })
 export class AppComponent {
-  constructor() {}
+  constructor(public environmentInjector: EnvironmentInjector) {}
 }

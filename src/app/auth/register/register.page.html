@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="form">
+    <ion-item lines="full">
+      <ion-label position="floating">Name</ion-label>
+      <ion-input type="text" required formControlName="name"></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="text" required formControlName="email"></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input
+        type="password"
+        required
+        formControlName="password"
+      ></ion-input>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button
+          (click)="register()"
+          color="danger"
+          expand="block"
+          [disabled]="form.invalid"
+          >Register</ion-button
+        >
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-button
+          [routerLink]="['/', 'auth', 'login']"
+          expand="block"
+          color="primary"
+          >Log in</ion-button
+        >
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>
